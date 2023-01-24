@@ -1,5 +1,5 @@
 =begin
-player: will holder all information relater to the player, like name and score. and will update the score as well. 
+Player: will holder all information relater to the player, like name and score. and will update the score as well. 
 -name
 -score
 -attr_accessor : name :score
