@@ -4,19 +4,22 @@ MathQuestion: will have methods to generate two random number between 1-20 and f
 -highest number
 -value_1
 -value_2
+-if the answer is correct: correctAnswer
 -method for generating random number between lowest and highest
 -method for getting and setting value_1 and value_2
 -method for returning a question
--mathod for verifying the answer and returning the output message
+-mathod for verifying the answer, updating correctAnswer and returning the output message
 =end
 
 class MathQuestion
+  attr_reader :correctAnswer
 
   def initialize(lowNum, highNum)
     @lowNum = lowNum
     @highNum = highNum
     @value1 = 0
     @value2 = 0
+    @correctAnswer = false
   end
 
   def generateRandomNumber
@@ -35,7 +38,13 @@ class MathQuestion
 
   def verifyAnswer(number)
     answer = @value1 + @value2
-    (answer == number.to_i) ? "Yes! You are correct" : "Seriously? No!"
+    if answer == number.to_i
+      @correctAnswer = true
+      return "Yes! You are correct"
+    else 
+      @correctAnswer = false
+      return "Seriously? No!"
+    end
   end
 
 end
